@@ -4,7 +4,7 @@ run-name: Push to Lokalise [${{ github.ref_name }}] ${{ github.event.after }}
 on:
   workflow_dispatch:
   schedule:
-    - cron: '1 * * * *'
+    - cron: '*/1 * * * *'
 
 env:
   VAR_BRANCH_NAME: ${{ vars.BRANCH }}
