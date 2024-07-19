@@ -6,6 +6,9 @@ on:
   schedule:
     - cron: '0 13 * * 3,5'
 
+env:
+  VAR_BRANCH_NAME: ${{ vars.BRANCH }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,7 +20,7 @@ jobs:
         VAR_LOKALISE_PROJECT_ID: ${{ vars.PROJECT_ID }}
         VAR_LOKALISE_SOURCE_LANG_ISO: ${{ vars.SOURCE_LANG }}
         VAR_FOLDER_PATH: ${{ vars.FOLDER_PATH }}
-        VAR_BRANCH_NAME: ${{ vars.BRANCH }}
+        
     steps:
       - uses: actions/checkout@v3
       
