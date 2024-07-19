@@ -4,7 +4,7 @@ run-name: Push to Lokalise [${{ github.ref_name }}] ${{ github.event.after }}
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '0 13 * * 3,5'
 
 env:
   VAR_BRANCH_NAME: ${{ vars.BRANCH }}
@@ -12,7 +12,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/${{ vars.BRANCH }}'  # Ensure the job runs only on the specified branch
+    if: github.ref == 'refs/heads/${{ vars.BRANCH_NAME }}'  # Ensure the job runs only on the specified branch
     env:
         GITHUB_PREVIOUS_COMMIT: ${{ github.event.after }}
         GITHUB_CURRENT_COMMIT: ${{ github.event.before }}
